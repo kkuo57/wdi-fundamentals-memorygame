@@ -28,3 +28,22 @@ for (var i = 1; i <= 4; i += 1){
 }
 }
 createCards();
+
+var cardsInPlay = [];
+var createBoard = function(){
+	var card = ["queen", "queen", "king", "king"];
+	for (var i = 0; i < card.length; i ++)
+		cardElement.setAttribute("data-card", card[i]);
+		cardElement.addEventListener('click', isTwoCards());
+		console.log(card[i]);
+		cardElement.innerHTML = '<img src="king-card.jpg" alt = "King of Spades" />';
+}
+var isMatch = function(){
+var isTwoCards = function(){
+	cardsInPlay.push(this.getAttribute('data-card'))
+	if (cardsInPlay.length === 2){
+		isMatch(cardsInPlay);
+		cardsInPlay = [];
+	}
+}
+}
